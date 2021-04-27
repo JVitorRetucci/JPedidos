@@ -1,18 +1,12 @@
 package Utils;
 
-
-
-
-
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.Properties;
-import javax.swing.JOptionPane;
 
 /**
  * A simple data source for getting database connections.

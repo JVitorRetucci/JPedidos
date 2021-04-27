@@ -33,7 +33,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             String sql = "select * from users where user_login = ? and user_password = ?";
             PreparedStatement pstm = connection.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, user.getUser_name());
@@ -112,7 +112,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             ResultSet rs = pstm.executeQuery();
@@ -150,7 +150,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setInt(1, user.getUser_id());
@@ -171,7 +171,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setString(1, user.getUser_name());
@@ -198,7 +198,7 @@ public class UserDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
 
             PreparedStatement pstm = connection.prepareStatement(sql);
             pstm.setInt(1, user.getUser_id());

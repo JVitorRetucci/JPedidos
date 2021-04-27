@@ -8,12 +8,15 @@ package Views;
 import Controllers.OrderDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JFrame;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
 
 /**
  *
  * @author Pedro
  */
-public class ListOrders extends javax.swing.JFrame {
+public class ListOrders extends JFrame {
     OrderDAO orderDAO = new OrderDAO();
 
     /**
@@ -26,10 +29,11 @@ public class ListOrders extends javax.swing.JFrame {
 
     public void refreshOrdersTable(String mode) {
         DefaultTableModel model = (DefaultTableModel) jTableOrders.getModel();
+        
 
         ArrayList<Models.Order> ordersList = orderDAO.listOrders();
         // int rows = model.getRowCount();
-
+        
         model.setRowCount(0);
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
@@ -40,7 +44,8 @@ public class ListOrders extends javax.swing.JFrame {
                 ordersList.get(i).getOrder_customer_name(),
                 ordersList.get(i).getOrder_customer_phone(),
                 ordersList.get(i).getOrder_total(),
-                ordersList.get(i).getOrder_status()
+                ordersList.get(i).getOrder_status(),
+                ordersList.get(i).getFormatedDate()
                 // "Status Pendente..."
                 //ordersList.get(i).getUser_id(),
                 // ordersList.get(i).getOrder_amount(),
@@ -71,11 +76,11 @@ public class ListOrders extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Customer", "Phone", "Total $", "Status"
+                "ID", "Customer", "Phone", "Total $", "Status", "Solicitado as"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -85,15 +90,15 @@ public class ListOrders extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableOrders);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -34,7 +34,7 @@ public class ProductDAO {
         try {
             JDBCUtil.init(config_file);
             connection = JDBCUtil.getConnection();
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
             
             pstm = connection.prepareStatement(sql);
             rs = pstm.executeQuery();
@@ -70,7 +70,7 @@ public class ProductDAO {
             try {
                 JDBCUtil.init(config_file);
                 connection = JDBCUtil.getConnection();
-                connection.setAutoCommit(false);
+                connection.setAutoCommit(true);
                 
                 PreparedStatement pstm = connection.prepareStatement(sql);
                 pstm.setString(1, p.getProduct_name());
@@ -101,7 +101,7 @@ public class ProductDAO {
             try {
                 JDBCUtil.init(config_file);
                 connection = JDBCUtil.getConnection();
-                connection.setAutoCommit(false);
+                connection.setAutoCommit(true);
                 
                 PreparedStatement pstm = connection.prepareStatement(sql);
                 pstm.setString(1, p.getProduct_name());
@@ -132,7 +132,7 @@ public class ProductDAO {
             try {
                 JDBCUtil.init(config_file);
                 connection = JDBCUtil.getConnection();
-                connection.setAutoCommit(false);
+                connection.setAutoCommit(true);
                 
                 PreparedStatement pstm = connection.prepareStatement(sql);
                 pstm.setInt(1, p.getProduct_id());

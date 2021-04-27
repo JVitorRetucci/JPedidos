@@ -5,6 +5,11 @@
  */
 package Models;
 
+import java.util.Date;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author henrique
@@ -17,13 +22,13 @@ public class Order {
     private int user_id;
     private float order_total;
     private String order_status;
-    private String created_at;
-    private String closed_at;
+    private Timestamp created_at;
+    private Timestamp closed_at;
     
     public Order(){
     }
     
-    public Order(int id, String customer_name, String customer_phone, int user_id, String status, String created_at, String closed_at){
+    public Order(int id, String customer_name, String customer_phone, int user_id, String status, Timestamp created_at, Timestamp closed_at){
         this.order_id = id;
         this.order_customer_name = customer_name;
         this.order_customer_phone = customer_phone;
@@ -68,11 +73,11 @@ public class Order {
         return order_status;
     }
 
-    public String getCreated_at() {
+    public Timestamp getCreated_at() {
         return created_at;
     }
 
-    public String getClosed_at() {
+    public Timestamp getClosed_at() {
         return closed_at;
     }
 
@@ -100,12 +105,27 @@ public class Order {
         this.order_status = order_status;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(Timestamp created_at) {
         this.created_at = created_at;
     }
 
-    public void setClosed_at(String closed_at) {
+    public void setClosed_at(Timestamp closed_at) {
         this.closed_at = closed_at;
+    }
+    
+    public String getFormatedDate() {
+    	
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+    	try {
+    	    Date date = (Date) formatter.parse(this.created_at.toString());
+    	    String data = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(date);
+    	    
+    	    return data;
+    	} catch (ParseException e) {
+    	    e.printStackTrace();
+    	}
+    	
+    	return null;
     }
     
     
