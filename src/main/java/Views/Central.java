@@ -55,9 +55,11 @@ public class Central extends javax.swing.JFrame {
             } else if (userRole.toLowerCase().equals("manager")) {
                 Product productsScreen = new Product();
                 ListOrders listOrdersScreen = new ListOrders();
+                Pack packScreen = new Pack();
 
                 this.jTabbedPane.addTab("Products", productsScreen.getContentPane());
                 this.jTabbedPane.addTab("List Orders", listOrdersScreen.getContentPane());
+                this.jTabbedPane.addTab("Criar pacotes", packScreen.getContentPane());
             }
         }
     }
