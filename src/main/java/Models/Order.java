@@ -44,8 +44,8 @@ public class Order {
         resposta += this.getOrder_customer_phone()  + "\n";
         resposta += this.getUser_id()               + "\n";
         resposta += this.getOrder_status()          + "\n";
-        resposta += this.getCreated_at()            + "\n";
-        resposta += this.getClosed_at()             + "\n";
+        resposta += this.getCreated_at().toString()            + "\n";
+        resposta += this.getClosed_at().toString()             + "\n";
         return resposta;
     }
 
@@ -118,7 +118,7 @@ public class Order {
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
     	try {
     	    Date date = (Date) formatter.parse(this.created_at.toString());
-    	    String data = new SimpleDateFormat("HH:mm dd/MM/yyyy").format(date);
+    	    String data = new SimpleDateFormat("HH:mm'h' dd/MM/yyyy").format(date);
     	    
     	    return data;
     	} catch (ParseException e) {

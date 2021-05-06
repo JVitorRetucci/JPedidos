@@ -161,6 +161,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
+        jTextFieldUsername.setText("gerente");
+        jPasswordField.setText("gerente123");
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

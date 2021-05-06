@@ -83,10 +83,13 @@ INSERT INTO pack (pack_title, pack_total, pack_description) VALUES ("Default Pac
 INSERT INTO pack (pack_title, pack_total, pack_description) VALUES ("Default Pack 2", 150.50, "This pack is auto generated");
 INSERT INTO pack_products (pack_id, product_id, quantity, descount) VALUES (1, 2, 2, 10);
 INSERT INTO pack_products (pack_id, product_id, quantity, descount) VALUES (1, 3, 2, 10);
+INSERT INTO pack_products (pack_id, product_id, quantity, descount) VALUES (2, 2, 2, 10);
+INSERT INTO pack_products (pack_id, product_id, quantity, descount) VALUES (2, 3, 2, 10);
 
 
 SELECT * FROM orders;
 SELECT * FROM products;
 select * from users;
-/*select pack.pack_id AS 'ID', pack_products.product_id AS 'ID PRODUTO', products.product_name as 'NOME'
-	from pack INNER JOIN ( pack_products inner join products on pack_products.product_id = products.product_id) on pack.pack_id = pack_products.pack_id;*/
+/*select pack.pack_id AS 'ID', pack_products.product_id AS 'ID PRODUTO', products.product_name as 'NOME'*/
+select pack.pack_id, pack_title, pack_total, pack_description, pack_products.product_id, quantity, descount, product_name, product_description, product_price
+	from pack INNER JOIN ( pack_products inner join products on pack_products.product_id = products.product_id) on pack.pack_id = pack_products.pack_id;
